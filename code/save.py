@@ -20,13 +20,12 @@ def save_vocabulary(path, vocab):
 
 
 def load_vocabulary(path):
-	"""
-	
-	Output
-	------
-	w2i, i2w
+    """
+    Output
+    ------
+    w2i, i2w
+    """
 
-	"""
     with open(path) as f:
         vocab = [line.strip() for line in f if len(line) > 0]
     return dict([(a, i) for i, a in enumerate(vocab)]), vocab
