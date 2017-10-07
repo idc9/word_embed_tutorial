@@ -25,6 +25,8 @@ Some additional resources are listed below. If you have any questions/comments s
 
 ### word embeddings and statistics
 
+A small word co-occurence matrix comes with the repository so the code runs, but it is likely to small to be interesting. You can download a larger word co-occurence matrix from this [google drive](https://drive.google.com/open?id=0B40b05f-8LWtVGsybWw4OTVyV00).
+
 [3_explore_raw_counts.ipynb](https://github.com/idc9/word_embed_tutorial/blob/master/3_explore_raw_counts.ipynb)
 - explore the word-word counts matrix
 
@@ -44,7 +46,7 @@ git clone https://github.com/idc9/word_embed_tutorial.git
 
 Make sure you have anaconda (e.g. jupyter, numpy, scipy, matplotlib, seaborn, pandas, and sklearn). Additionally, a few of the functions require: request, ast, json , and webcolors. Optionally, you can install [plotly](https://github.com/plotly/plotly.py) for interactive visualizations.
 
-
+TODO: iain make better instructions/make this easier
 
 # Download data
 
@@ -52,7 +54,7 @@ You can either quickly get started with notebooks 3/4 by downloaded a pre-comput
 
 ### Quick start with pre-computed data
 
-You can download a pre-computed word-word co-occurence matrix from [**here**](https://drive.google.com/open?id=0B40b05f-8LWtVGsybWw4OTVyV00), place it in the `data/` folder then start with notebooks 3 and 4. 
+You can download a pre-computed word-word co-occurence matrix on 5000 opinions from [**here**](https://drive.google.com/open?id=0B40b05f-8LWtVGsybWw4OTVyV00).
 
 
 ### Raw data and pre-proecessing
