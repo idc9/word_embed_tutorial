@@ -33,13 +33,11 @@ A small word co-occurence matrix comes with the repository so the code runs, but
 
 # Code installation
 
-To get this tutorial on your computer clone the repository
+You can download this repository by clicking the green `Clone or download` button above or
 
 ```
 git clone https://github.com/idc9/word_embed_tutorial.git
 ```
-
-Alternatively, you can download a zipped copy of this repository from [**here**](https://drive.google.com/open?id=0B40b05f-8LWtVGsybWw4OTVyV00).
 
 Make sure you have anaconda (e.g. jupyter, numpy, scipy, matplotlib, seaborn, pandas, and sklearn). Additionally, a few of the functions require: request, ast, json , and webcolors. Optionally, you can install [plotly](https://github.com/plotly/plotly.py) for interactive visualizations.
 
