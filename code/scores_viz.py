@@ -285,7 +285,7 @@ Components are numbered starting at 1.
     U: scores matrix (numpy matrix)
     comp1: first component to filter
     comp2: second component to filter (optional)
-    comp1_min: threshods
+    comp1_min: thresholds
 
     Output
     ------

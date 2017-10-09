@@ -1,4 +1,6 @@
 import numpy as np
+from scipy.sparse import diags
+from scipy.sparse.linalg import norm
 
 
 def normalize_rows(counts):
@@ -19,7 +21,7 @@ def nz_elementwise_transform(counts, f):
     counts:
     f: function to apply to nonzero entries -- must be vectorized
     """
-    counts_trans = counts
+    counts_trans = counts.copy()
     counts_trans.data = f(counts.data)
     return counts_trans
 

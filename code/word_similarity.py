@@ -1,16 +1,16 @@
 import numpy as np
 import heapq
 
-def vec(word, M, w2i):
+def vec(word, embedding, w2i):
 	"""
 	Returns the vector for word as an array
 	"""
-	# if M is sparse
+	# if embedding is sparse
 	# return counts[w2i[word], :].toarray().reshape(-1)
-	return M[w2i[word], :]
+	return embedding[w2i[word], :]
 
 
-def similarity(word1, word2, M, w2i, sim='angle'):
+def similarity(word1, word2, embedding, w2i, sim='angle'):
 	"""
 	Computes the similarity between two words
 	
@@ -24,8 +24,8 @@ def similarity(word1, word2, M, w2i, sim='angle'):
 	similarity measure between two words
 	"""
 	
-	v1 = vec(word1, M, w2i)
-	v2 = vec(word2, M, w2i)
+	v1 = vec(word1, embedding, w2i)
+	v2 = vec(word2, embedding, w2i)
 
 
 	if sim == 'angle':
@@ -40,7 +40,11 @@ def similarity(word1, word2, M, w2i, sim='angle'):
 		raise ValueError('sim must be one of: angle, cosine, jaccard, dice')
 
 
-def closest(word, M, w2i, N=10, just_words=True):
+def word_angles(word, embedding, w2i):
+    w = vec(word, embedding, w2i)
+    return [angle_between(embedding[i, :], w) for i in range(embedding.shape[0])]
+        
+def closest(word, embedding, w2i, N=10, just_words=True):
 	"""
 	Finds the closest words to a given word where distance
 	is measured by angles
@@ -48,19 +52,20 @@ def closest(word, M, w2i, N=10, just_words=True):
 	Parameters
 	-----------
 	word:
-	M: embedding matrix whose rows are word vectors
+	embedding: embedding matrix whose rows are word vectors
 	w2i: dict mapping words to indices
 	N: number of words to find
 	just_words: whether or not to return just the words
 	"""
-	w = vec(word, M, w2i)
-	angles = [angle_between(M[i, :], w) for i in range(M.shape[1])]
+	# w = vec(word, embedding, w2i)
+	# angles = [angle_between(embedding[i, :], w) for i in range(embedding.shape[0])]
+	angles = word_angles(word, embedding, w2i)
 
 	i2w = [''] * len(w2i)
 	for w in w2i.keys():
 		i2w[w2i[w]] = w
 
-	close = heapq.nsmallest(N, zip(angles, [i2w[i] for i in range(M.shape[1])]))
+	close = heapq.nsmallest(N, zip(angles, [i2w[i] for i in range(embedding.shape[0])]))
 
 	if just_words:
 		return [p[1] for p in close] # list(list(zip(*close))[1])
@@ -71,10 +76,15 @@ def closest(word, M, w2i, N=10, just_words=True):
 def cosine_sim(v, w):
 	return np.dot(v, w) / np.sqrt(np.dot(v, v) * np.dot(w, w))
 
-def angle_between(v, w):
+def angle_between(v, w, mod=False):
 	cos_angle = cosine_sim(v, w)
 	angle = np.arccos(np.clip(cos_angle, -1.0, 1.0))
-	return np.degrees(angle)
+
+	angle = np.degrees(angle)
+	if mod:
+		angle = min(angle, 90 - angle)
+
+	return angle
 
 def jaccard_sim(v, w):
 	return np.minimum(v, w).sum()/np.maximum(v, w).sum()
