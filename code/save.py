@@ -16,7 +16,8 @@ def load_matrix(f):
 def save_vocabulary(path, vocab):
     with open(path, 'w') as f:
         for w in vocab:
-            print >>f, w
+            f.write(w)
+            f.write('\n')
 
 
 def load_vocabulary(path):

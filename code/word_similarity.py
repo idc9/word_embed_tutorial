@@ -63,7 +63,7 @@ def closest(word, M, w2i, N=10, just_words=True):
 	close = heapq.nsmallest(N, zip(angles, [i2w[i] for i in range(M.shape[1])]))
 
 	if just_words:
-		return list(zip(*close)[1])
+		return [p[1] for p in close] # list(list(zip(*close))[1])
 	else:
 		return close
 

@@ -67,12 +67,12 @@ def top_loading_components(v, i2w, n, comp_numer=None):
     """
 
     top_load = top_loading_words(v, n, i2w)
-    top_words = list(zip(*top_load)[1])
+    top_words =[p[1] for p in top_load]  # list(zip(*top_load)[1])
     w2i = {i2w[i]: i for i in range(len(i2w))}
     load_vals = [v[w2i[w]] for w in top_words]
 
     # prevent unicode issues
-    top_words = [w.decode('utf-8') for w in list(top_words)]
+    # top_words = [w.decode('utf-8') for w in list(top_words)]
     
 
     sns.barplot(y=top_words,

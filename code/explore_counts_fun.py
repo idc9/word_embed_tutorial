@@ -20,7 +20,7 @@ def top_counts_bar_plot(counts, i2w, N=10, title='', figsize=[10, 10]):
     top_counts, top_words = zip(*largest)
 
     # prevent unicode issues
-    top_words = [w.decode('utf-8') for w in list(top_words)]
+    # top_words = [w.decode('utf-8') for w in list(top_words)]
 
     plt.figure(figsize=figsize)
     sns.barplot(y=top_words, x=list(top_counts), color='grey')
