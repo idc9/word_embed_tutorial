@@ -15,14 +15,17 @@ Some additional resources are listed below. If you have any questions/comments s
 The content of this tutorial is in three Jupyter notebooks. There is some additional code in the *code/* folder.
 
 [1_make_word_co_ouccurence_matrix.ipynb](https://github.com/idc9/word_embed_tutorial/blob/master/1_make_word_co_ouccurence_matrix.ipynb)
+
 - processs raw opinion documents and creates the word-word co-ouccrence matrix 
 
 A small word co-occurence matrix comes with the repository so the code runs, but it is likely too small to be interesting. You can download a larger word co-occurence matrix from this [google drive](https://drive.google.com/open?id=0B40b05f-8LWtVGsybWw4OTVyV00).
 
 [2_explore_raw_counts.ipynb](https://github.com/idc9/word_embed_tutorial/blob/master/2_explore_raw_counts.ipynb)
+
 - explores the word-word counts matrix
 
 [3_explore_word_embedding.ipynb](https://github.com/idc9/word_embed_tutorial/blob/master/3_explore_word_embedding.ipynb)
+
 - possibly transform the word-word counts matrix (e.g. PPMI)
 - uses SVD to compute a word embedding
 - explores word embedding (e.g. similar words)
