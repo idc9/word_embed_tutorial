@@ -11,7 +11,7 @@ The background material for this tutorial is
 Some additional resources are listed below. If you have any questions/comments shoot me an email (iain@unc.edu).
 
 
-# notebooks
+# Notebooks
 The content of this tutorial is in three Jupyter notebooks. There is some additional code in the *code/* folder.
 
 [1_make_word_co_ouccurence_matrix.ipynb](https://github.com/idc9/word_embed_tutorial/blob/master/1_make_word_co_ouccurence_matrix.ipynb)
@@ -31,7 +31,7 @@ A small word co-occurence matrix comes with the repository so the code runs, but
 - explores word embedding (e.g. similar words)
 
 
-# code installation
+# Code installation
 
 To get this tutorial on your computer clone the repository
 
@@ -39,7 +39,11 @@ To get this tutorial on your computer clone the repository
 git clone https://github.com/idc9/word_embed_tutorial.git
 ```
 
+Alternatively, you can download a zipped copy of this repository from [**here**](https://drive.google.com/open?id=0B40b05f-8LWtVGsybWw4OTVyV00).
+
 Make sure you have anaconda (e.g. jupyter, numpy, scipy, matplotlib, seaborn, pandas, and sklearn). Additionally, a few of the functions require: request, ast, json , and webcolors. Optionally, you can install [plotly](https://github.com/plotly/plotly.py) for interactive visualizations.
+
+Note this tutorial is in python 3.
 
 TODO: iain make better instructions/easier installation
 
